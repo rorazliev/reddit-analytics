@@ -1,0 +1,40 @@
+:root {
+  --header-background: rgba(255, 255, 255, 0.72);
+  --primary: #0d6efd;
+  --primary-hover: #0a58ca;
+  --primary-light: #f0f7ff;
+  --gray: #eaeef3;
+  --gray-hover: #f3f6f9;
+  --dark: #212529;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+#root {
+  flex-direction: column;
+  display: flex;
+}
