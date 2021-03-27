@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import style from './index.module.scss';
 import ignoreRejection from '../../helpers/ignoreRejection';
+import Loader from '../Loader';
 
 const App: React.FC = (): ReactElement => {
   // Handle unhandled rejections
@@ -18,7 +19,7 @@ const App: React.FC = (): ReactElement => {
   return (
     <Router>
       <main className={style.main} role="main">
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Switch>
             <Route exact path="/" render={() => null} />
             <Route exact path="/:subreddit" render={() => null} />
