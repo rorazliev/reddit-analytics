@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import style from './index.module.scss';
 import ignoreRejection from '../../helpers/ignoreRejection';
+import Footer from '../Footer';
 import Header from '../Header';
 import Loader from '../Loader';
 
@@ -29,6 +30,7 @@ const App: React.FC = (): ReactElement => {
           </Switch>
         </Suspense>
       </main>
+      <Footer />
     </Router>
   );
 };
