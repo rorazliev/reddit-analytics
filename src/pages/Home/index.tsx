@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import style from './index.module.scss';
+import Search from '../../components/Search';
 
 const Home: React.FC = (): ReactElement => (
   <div className={style.container}>
@@ -17,6 +18,7 @@ const Home: React.FC = (): ReactElement => (
       {' '}
       Find the right time and boost your post!
     </p>
+    <Search />
   </div>
 );
 
