@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import style from './index.module.scss';
 import ignoreRejection from '../../helpers/ignoreRejection';
+import Home from '../../pages/Home';
 import Footer from '../Footer';
 import Header from '../Header';
 import Loader from '../Loader';
@@ -24,7 +25,7 @@ const App: React.FC = (): ReactElement => {
       <main className={style.main} role="main">
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route exact path="/" render={() => null} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/:subreddit" render={() => null} />
             <Route path="*" render={() => <Redirect to="/" />} />
           </Switch>
