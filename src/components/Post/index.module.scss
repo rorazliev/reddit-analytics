@@ -1,0 +1,62 @@
+.card {
+  border: 1px solid var(--gray);
+  border-radius: 1rem;
+  display: block;
+  padding: 2rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.header {
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100%;
+}
+
+.rating {
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+
+  & > svg {
+    margin-right: 1rem;
+  }
+}
+
+.title {
+  transition: color 0.15s ease-in-out;
+  color: var(--dark);
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 2rem;
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
+
+.date {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.author {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+
+.authorLink {
+  transition: color 0.15s ease-in-out;
+  color: var(--dark);
+  font-weight: 600;
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
