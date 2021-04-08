@@ -20,4 +20,4 @@ const Footer: React.FC = (): ReactElement => (
   </footer>
 );
 
-export default Footer as React.FC;
+export default Footer;

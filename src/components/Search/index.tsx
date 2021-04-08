@@ -39,4 +39,4 @@ const Search: React.FC = (): ReactElement => {
   );
 };
 
-export default Search as React.FC;
+export default Search;

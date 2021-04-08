@@ -22,4 +22,4 @@ const Header: React.FC = (): ReactElement => (
   </nav>
 );
 
-export default Header as React.FC;
+export default Header;

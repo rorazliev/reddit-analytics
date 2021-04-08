@@ -7,4 +7,4 @@ const Loader: React.FC = (): ReactElement => (
   </div>
 );
 
-export default Loader as React.FC;
+export default Loader;

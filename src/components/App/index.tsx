@@ -36,4 +36,4 @@ const App: React.FC = (): ReactElement => {
   );
 };
 
-export default App as React.FC;
+export default App;
