@@ -1,0 +1,32 @@
+.container {
+  justify-content: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: flex;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+}
+
+.heading {
+  color: var(--primary);
+  text-align: center;
+  max-width: 60rem;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.description {
+  margin: 2rem 0 4rem;
+  text-align: center;
+  font-size: 1.6rem;
+  max-width: 60rem; 
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 3rem;
+  }
+}
