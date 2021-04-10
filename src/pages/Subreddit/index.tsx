@@ -5,6 +5,7 @@ import style from './index.module.scss';
 import * as api from '../../api/reddit';
 import sortPosts from '../../helpers/sortPosts';
 import Error from '../../components/Error';
+import HeatMap from '../../components/HeatMap';
 import Loader from '../../components/Loader';
 import { SortedPosts } from '../../types/post';
 
@@ -60,6 +61,7 @@ const Subreddit: React.FC = (): ReactElement => {
           {' '}
           {subreddit}
         </h2>
+        <HeatMap posts={posts} />
       </div>
     </>
   );
