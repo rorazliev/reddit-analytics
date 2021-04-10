@@ -1,7 +1,8 @@
 .card {
   border: 1px solid var(--gray);
+  flex-direction: column;
   border-radius: 1rem;
-  display: block;
+  display: flex;
   padding: 2rem;
 
   &:not(:last-child) {
