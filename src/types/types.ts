@@ -1,6 +1,3 @@
-/* eslint-disable camelcase */
-
-// Post Type
 export type Post = {
   author: string,
   created_utc: number,
@@ -11,10 +8,8 @@ export type Post = {
   title: string,
 }
 
-// Response Type
-export type PostResponse = {
-  data: Post[]
+export type ServerResponse = {
+  data: Post[],
 }
 
-// Type of Sorted Posts
 export type SortedPosts = Post[][][];
