@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { Post, SortedPosts } from '../types/post';
+import { Post, SortedPosts } from '../types/types';
 
 /**
  * Sort given posts by weekday and hour

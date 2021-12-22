@@ -1,46 +1,57 @@
 import React, { ReactElement } from 'react';
 import dayjs from 'dayjs';
-import style from './index.module.scss';
-import { Star } from '../Icons';
-import { Post as PostType } from '../../types/post';
-import { userURL } from '../../api/reddit';
+import { useSelector } from '../../redux/store';
+import { Post as PostType } from '../../types/types';
+import { Star } from '../IconSet';
+import {
+  Author,
+  AuthorLink,
+  Card, Date, Header, Raiting, Title,
+} from './styles';
+import { userURL } from '../../api/api';
 
-type PropType = {
-  post: PostType,
-};
+type PropsType = {
+  data: PostType,
+}
 
-const Post: React.FC<PropType> = ({ post }): ReactElement => (
-  <div className={style.card} key={post.id}>
-    <div className={style.header}>
-      <div className={style.rating}>
-        <Star />
-        {post.score >= 1000 ? `${(post.score / 1000).toFixed(1)}k` : post.score}
-      </div>
-      <span className={style.date}>
-        {dayjs.unix(post.created_utc).format('h:mma')}
-      </span>
-    </div>
-    <a
-      className={style.title}
-      href={post.full_link}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {post.title}
-    </a>
-    <span className={style.author}>
-      Posted by
-      {' '}
-      <a
-        className={style.authorLink}
-        href={`${userURL}/${post.author}`}
+const Post: React.FC<PropsType> = ({ data }): ReactElement => {
+  // Get a color scheme indicator
+  const isLight = useSelector((state) => state.app.colorScheme === 'light');
+
+  // Render
+  return (
+    <Card isLight={isLight}>
+      <Header>
+        <Raiting>
+          <Star />
+          {data.score >= 1000 ? `${(data.score / 1000).toFixed(1)}k` : data.score}
+        </Raiting>
+        <Date>
+          {dayjs.unix(data.created_utc).format('h:mma')}
+        </Date>
+      </Header>
+      <Title
+        href={data.full_link}
         target="_blank"
         rel="noreferrer"
       >
-        {post.author}
-      </a>
-    </span>
-  </div>
-);
+        {data.title}
+
+      </Title>
+      <Author>
+        Posted by
+        {' '}
+        <AuthorLink
+          href={`${userURL}/${data.author}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {data.author}
+
+        </AuthorLink>
+      </Author>
+    </Card>
+  );
+};
 
 export default Post;

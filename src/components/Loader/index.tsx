@@ -1,10 +1,17 @@
 import React, { ReactElement } from 'react';
-import style from './index.module.scss';
+import { useSelector } from '../../redux/store';
+import { Container, Spinner } from './styles';
 
-const Loader: React.FC = (): ReactElement => (
-  <div className={style.container}>
-    <div className={style.spinner} />
-  </div>
-);
+const Loader: React.FC = (): ReactElement => {
+  // Get a color scheme indicator
+  const isLight = useSelector((state) => state.app.colorScheme === 'light');
+
+  // Render
+  return (
+    <Container>
+      <Spinner isLight={isLight} />
+    </Container>
+  );
+};
 
 export default Loader;

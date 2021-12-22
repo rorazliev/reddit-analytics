@@ -1,15 +1,22 @@
 import React, { ReactElement } from 'react';
-import style from './index.module.scss';
+import { useSelector } from '../../redux/store';
+import { Container, Description, Heading } from './styles';
 
-const Error: React.FC = (): ReactElement => (
-  <div className={style.container}>
-    <h2 className={style.heading}>:(</h2>
-    <p className={style.description}>
-      You ether did a mistake
-      {' '}
-      or this subreddit does not exist.
-    </p>
-  </div>
-);
+const Error: React.FC = (): ReactElement => {
+  // Get a color scheme indicator
+  const isLight = useSelector((state) => state.app.colorScheme === 'light');
+
+  // Render
+  return (
+    <Container>
+      <Heading isLight={isLight}>:(</Heading>
+      <Description>
+        You ether did a mistake
+        {' '}
+        or this subreddit does not exist.
+      </Description>
+    </Container>
+  );
+};
 
 export default Error;

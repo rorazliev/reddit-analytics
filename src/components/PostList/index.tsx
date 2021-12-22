@@ -1,40 +1,38 @@
 import React, { ReactElement } from 'react';
-import style from './index.module.scss';
+import { Post as PostType } from '../../types/types';
 import Post from '../Post';
-import { Post as PostType } from '../../types/post';
+import { Container, Heading, Subheading } from './styles';
 
-type PropType = {
-  posts: PostType[]
+type PropsType = {
+  posts: PostType[],
 }
 
-const PostList: React.FC<PropType> = ({ posts = [] }): ReactElement => {
-  // if no post found, render the message
+const PostList: React.FC<PropsType> = ({ posts = [] }): ReactElement => {
+  //
   if (posts.length === 0) {
     return (
-      <div className={style.container}>
-        <h3 className={style.heading}>No Post Found</h3>
-        <p className={style.subheading}>
+      <Container>
+        <Heading>No Post Found</Heading>
+        <Subheading>
           We cound not find anything that is worthy of being noticed.
           {' '}
           Try another date and time.
-        </p>
-      </div>
+        </Subheading>
+      </Container>
     );
   }
 
   // Render
   return (
-    <div className={style.container}>
-      <h3 className={style.heading}>The Best of</h3>
-      <p className={style.subheading}>
+    <Container>
+      <Heading>The Best of</Heading>
+      <Subheading>
         We have found some remarkable posts that are worthy of being noticed.
-      </p>
-      {
-        posts.map((post) => (
-          <Post key={post.id} post={post} />
-        ))
-      }
-    </div>
+      </Subheading>
+      {posts.map((post) => (
+        <Post key={post.id} data={post} />
+      ))}
+    </Container>
   );
 };
 

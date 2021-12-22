@@ -1,23 +1,38 @@
 import React, { ReactElement } from 'react';
-import style from './index.module.scss';
+import { useSelector } from '../../redux/store';
+import {
+  Container, Box, Copyright, Link,
+} from './styles';
 
-const Footer: React.FC = (): ReactElement => (
-  <footer className={style.footer} role="contentinfo">
-    <div className={style.container}>
-      <span className={style.copyright}>
-        Made with ❤️ by
-        {' '}
-        <a
-          className={style.link}
-          href="https://linkedin.com/in/rorazliev"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Ruslan Orazliev
-        </a>
-      </span>
-    </div>
-  </footer>
-);
+const Footer: React.FC = (): ReactElement => {
+  // Get a color scheme indicator
+  const isLight = useSelector((state) => state.app.colorScheme === 'light');
+
+  // Get the current year
+  const date = new Date();
+  const year = date.getFullYear();
+
+  // Render
+  return (
+    <Container>
+      <Box>
+        <Copyright>
+          {year}
+          {' '}
+          © Made with ❤️ by
+          {' '}
+          <Link
+            href="https://linkedin.com/in/rorazliev"
+            target="_blank"
+            rel="noreferrer"
+            isLight={isLight}
+          >
+            Ruslan Orazliev
+          </Link>
+        </Copyright>
+      </Box>
+    </Container>
+  );
+};
 
 export default Footer;

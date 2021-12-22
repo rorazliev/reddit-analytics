@@ -1,25 +1,49 @@
 import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import style from './index.module.scss';
-import { Analytics, Github } from '../Icons';
+import { useDispatch } from 'react-redux';
+import { setColorScheme } from '../../redux/appReducer';
+import { Dispatch, useSelector } from '../../redux/store';
+import {
+  Analytics, Github, Moon, Sun,
+} from '../IconSet';
+import {
+  Box, ColorSchemeToggle, Container, GithubLink, HomeLink, RightActions,
+} from './styles';
 
-const Header: React.FC = (): ReactElement => (
-  <nav className={style.navigation} role="navigation">
-    <div className={style.container}>
-      <Link to="/" className={style.homeLink} data-testid="home-link">
-        <Analytics />
-      </Link>
-      <a
-        className={style.githubLink}
-        href="https://github.com/rorazliev/reddit-analytics"
-        target="_blank"
-        rel="noreferrer"
-        data-testid="github-link"
-      >
-        <Github />
-      </a>
-    </div>
-  </nav>
-);
+const Header: React.FC = (): ReactElement => {
+  // Get a color scheme indicator
+  const isLight = useSelector((state) => state.app.colorScheme === 'light');
+
+  // Get a reference to the dispatch function
+  const dispatch: Dispatch = useDispatch();
+
+  // Change a color scheme on click
+  const handleOnClick = (): void => {
+    dispatch(setColorScheme(isLight ? 'dark' : 'light'));
+  };
+
+  // Render
+  return (
+    <Container isLight={isLight} role="banner">
+      <Box>
+        <HomeLink isLight={isLight} to="/">
+          <Analytics />
+        </HomeLink>
+        <RightActions>
+          <GithubLink
+            href="https://github.com/rorazliev/reddit-analytics"
+            target="_blank"
+            rel="noreferrer"
+            isLight={isLight}
+          >
+            <Github />
+          </GithubLink>
+          <ColorSchemeToggle isLight={isLight} onClick={handleOnClick}>
+            {isLight ? <Moon /> : <Sun />}
+          </ColorSchemeToggle>
+        </RightActions>
+      </Box>
+    </Container>
+  );
+};
 
 export default Header;
