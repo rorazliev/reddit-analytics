@@ -5,10 +5,6 @@ type PropsType = {
 }
 
 export const GlobalStyle = createGlobalStyle<PropsType>`
-  * {
-    user-select: none;
-  }
-
   html, body {
     padding: 0;
     margin: 0;
