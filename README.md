@@ -23,7 +23,7 @@ If you'd like to try the application, you can do it [here](https://rorazliev.git
 
 Or:
 
-1. Download the distribution code from [here](https://github.com/rorazliev/reddit-analytics/archive/refs/tags/v1.1.0.zip) and unzip it
+1. Download the distribution code from [here](https://github.com/rorazliev/reddit-analytics/archive/refs/tags/v1.1.1.zip) and unzip it
 2. In your terminal, `cd` into the project directory
 3. Run `npm i` to install all dependencies
 4. Run `npm start` to start a server

@@ -1,6 +1,6 @@
 {
   "name": "reddit-analytics",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Find the best time to post on your subreddit",
   "private": true,
   "repository": {
